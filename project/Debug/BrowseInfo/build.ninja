@@ -1,0 +1,110 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Check.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Check.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Flash.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Flash.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\main.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\main.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\ParseData.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\ParseData.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Queue.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Queue.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Uart.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Uart.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\MKL46Z\system_MKL46Z4.c -xcl_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl -macro_file C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\MKL46Z\system_MKL46Z4.c -D CPU_MKL46Z256VLL4 -o C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\startup --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\source\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\MKL46Z\ -I C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\..\CMSIS\Include\ -Ol --predef_macros C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.tmp
+  rspfile_name = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl.rsp
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Check.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Flash.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\main.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\ParseData.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Queue.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\source\Uart.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi : INDEXER C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\MKL46Z\system_MKL46Z4.c
+  flags = -out=C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi -f C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2.pbw : MAKEBROWSE C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2.pbd
+  flags = C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2.pbd -output C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2.pbw
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part0.pbi : PDBLINK C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.pbi |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.pbi $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.pbi
+  flags = -M C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part0.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Check.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Flash.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\main.pbi
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part1.pbi : PDBLINK C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.pbi |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.pbi $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.pbi
+  flags = -M C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part1.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\ParseData.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Queue.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\source\Uart.pbi
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part2.pbi : PDBLINK C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi
+  flags = -M C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part2.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi
+
+build C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2.pbd : PDBLINK C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part0.pbi |  $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part1.pbi $
+C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part2.pbi
+  flags = -M C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2.pbd C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part0.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part1.pbi C$:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\BrowseInfo\ThuNV6_MCP_MockPj2_part2.pbi
+

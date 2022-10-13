@@ -1,0 +1,284 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.2.313/W64 for ARM                  15/Sep/2022  14:13:54
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Exe\ThuNV6_MCP_MockPj2.out
+#    Map file     =
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\List\ThuNV6_MCP_MockPj2.map
+#    Command line =
+#        -f
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Exe\ThuNV6_MCP_MockPj2.out.rsp
+#        (C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source\Check.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source\Flash.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source\main.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source\ParseData.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source\Queue.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\startup\startup_MKL46Z4.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\startup\system_MKL46Z4.o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source\Uart.o
+#        --no_out_extension -o
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Exe\ThuNV6_MCP_MockPj2.out
+#        --map
+#        C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\List\ThuNV6_MCP_MockPj2.map
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\NXP\MKL46Z256xxx4.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3ff] |
+                [from 0x410 to 0x3'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 4K, alignment = 8 { };
+"P3":  place in [from 0x1fff'e000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2000'5fff] {
+          rw, block CSTACK, block HEAP };
+"P5":  place in [from 0x400 to 0x40f] { section FlashConfig };
+
+No sections matched the following patterns:
+
+  ro section application_specific_ro  in "P2|P4"
+  rw section application_specific_rw  in "P2|P4"
+
+
+  Section          Kind         Address   Size  Object
+  -------          ----         -------   ----  ------
+"A0":                                     0xc0
+  .intvec          ro code          0x0   0xc0  startup_MKL46Z4.o [2]
+                                 - 0xc0   0xc0
+
+"P1", part 1 of 2:                       0x24a
+  .text            ro code         0xc0  0x24a  Check.o [1]
+                                - 0x30a  0x24a
+
+"P5":                                     0x10
+  FlashConfig      ro code        0x400   0x10  startup_MKL46Z4.o [2]
+                                - 0x410   0x10
+
+"P1", part 2 of 2:                       0x7a6
+  .text            ro code        0x410   0xe0  I32DivModFast.o [4]
+  .rodata          const          0x4f0    0x2  Check.o [1]
+  .text            ro code        0x4f4    0x2  IntDivZer.o [4]
+  .rodata          const          0x4f6    0x2  Check.o [1]
+  .text            ro code        0x4f8  0x164  ParseData.o [1]
+  .text            ro code        0x65c  0x154  Uart.o [1]
+  .text            ro code        0x7b0  0x108  main.o [1]
+  .text            ro code        0x8b8   0x64  Queue.o [1]
+  .text            ro code        0x91c   0xf8  Flash.o [1]
+  .text            ro code        0xa14   0x3c  zero_init3.o [4]
+  .text            ro code        0xa50   0x28  data_init.o [4]
+  .text            ro code        0xa78   0x24  startup_MKL46Z4.o [2]
+  .iar.init_table  const          0xa9c   0x10  - Linker created -
+  .text            ro code        0xaac   0x1e  cmain.o [4]
+  .text            ro code        0xaca    0x4  low_level_init.o [3]
+  .text            ro code        0xace    0x8  exit.o [3]
+  .rodata          const          0xad6    0x2  ParseData.o [1]
+  .text            ro code        0xad8    0xa  cexit.o [4]
+  .rodata          const          0xae2    0x2  ParseData.o [1]
+  .text            ro code        0xae4   0x14  exit.o [5]
+  .rodata          const          0xaf8   0x1c  main.o [1]
+  .text            ro code        0xb14   0x1c  cstartup_M.o [4]
+  .rodata          const          0xb30   0x10  main.o [1]
+  .text            ro code        0xb40    0xc  system_MKL46Z4.o [2]
+  .text            ro code        0xb4c    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb54    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb5c    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb64    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb6c    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb74    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb7c    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb84    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb8c    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb94    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xb9c    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xba4    0x8  startup_MKL46Z4.o [2]
+  .text            ro code        0xbac    0x2  startup_MKL46Z4.o [2]
+  .text            ro code        0xbae    0x2  startup_MKL46Z4.o [2]
+  .text            ro code        0xbb0    0x2  startup_MKL46Z4.o [2]
+  .text            ro code        0xbb2    0x2  startup_MKL46Z4.o [2]
+  .text            ro code        0xbb4    0x2  startup_MKL46Z4.o [2]
+  .rodata          const          0xbb6    0x0  zero_init3.o [4]
+                                - 0xbb6  0x7a6
+
+"P3", part 1 of 2:                       0x154
+  .bss             zero     0x1fff'e000  0x140  main.o [1]
+  .bss             zero     0x1fff'e140   0x10  ParseData.o [1]
+  .bss             zero     0x1fff'e150    0x4  main.o [1]
+                          - 0x1fff'e154  0x154
+
+"P3", part 2 of 2:                       0x800
+  CSTACK                    0x1fff'e158  0x800  <Block>
+    CSTACK         uninit   0x1fff'e158  0x800  <Block tail>
+                          - 0x1fff'e958  0x800
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x30a        0x3ff      0xf6
+        0xbb6     0x3'ffff  0x3'f44a
+  0x1fff'e154  0x1fff'e157       0x4
+  0x1fff'e958  0x1fff'ffff    0x16a8
+  0x2000'0000  0x2000'5fff    0x6000
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x154:
+          0x1fff'e000  0x154
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+command line/config:
+    --------------------------------------------
+    Total:
+
+C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source: [1]
+    Check.o                586        4
+    Flash.o                248
+    ParseData.o            356        4       16
+    Queue.o                100
+    Uart.o                 340
+    main.o                 264       44      324
+    --------------------------------------------
+    Total:               1'894       52      340
+
+C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\startup: [2]
+    startup_MKL46Z4.o      350
+    system_MKL46Z4.o        12
+    --------------------------------------------
+    Total:                 362
+
+dl6M_tln.a: [3]
+    exit.o                   8
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                  12
+
+rt6M_tl.a: [4]
+    I32DivModFast.o        224
+    IntDivZer.o              2
+    cexit.o                 10
+    cmain.o                 30
+    cstartup_M.o            28
+    data_init.o             40
+    zero_init3.o            60
+    --------------------------------------------
+    Total:                 394
+
+shb_l.a: [5]
+    exit.o                  20
+    --------------------------------------------
+    Total:                  20
+
+    Gaps                     2
+    Linker created                   16    2'048
+------------------------------------------------
+    Grand Total:         2'684       68    2'388
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xa9c          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xaac          --   Gb  - Linker created -
+?main                         0xaad         Code  Gb  cmain.o [4]
+CSTACK$$Base            0x1fff'e158          --   Gb  - Linker created -
+CSTACK$$Limit           0x1fff'e958          --   Gb  - Linker created -
+Erase_Multi_Sector            0x9e9   0x2c  Code  Gb  Flash.o [1]
+Erase_Sector                  0x97d   0x48  Code  Gb  Flash.o [1]
+GetAddress                    0x4f9   0x9c  Code  Gb  ParseData.o [1]
+GetData                       0x595   0xbc  Code  Gb  ParseData.o [1]
+GetData::data           0x1fff'e140   0x10  Data  Lc  ParseData.o [1]
+InitQueue                     0x8b9   0x12  Code  Gb  Queue.o [1]
+IsEmpty                       0x8cb   0x12  Code  Gb  Queue.o [1]
+NVIC_EnableIRQ                0x65d    0xe  Code  Lc  Uart.o [1]
+Program_LongWord_8B           0x91d   0x60  Code  Gb  Flash.o [1]
+Push                          0x8dd   0x3a  Code  Gb  Queue.o [1]
+Region$$Table$$Base           0xa9c          --   Gb  - Linker created -
+Region$$Table$$Limit          0xaac          --   Gb  - Linker created -
+SystemInit                    0xb41    0x8  Code  Gb  system_MKL46Z4.o [2]
+UART0_IRQHandler              0x88d   0x18  Code  Gb  main.o [1]
+__Vectors                       0x0          --   Gb  startup_MKL46Z4.o [2]
+__Vectors_End                  0xc0         Data  Gb  startup_MKL46Z4.o [2]
+__Vectors_Size {Abs}           0xc0          --   Gb  startup_MKL46Z4.o [2]
+__aeabi_idiv                  0x43d         Code  Gb  I32DivModFast.o [4]
+__aeabi_idiv0                 0x4f5         Code  Gb  IntDivZer.o [4]
+__aeabi_idivmod               0x43d         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidiv                 0x443         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod              0x443         Code  Gb  I32DivModFast.o [4]
+__cmain                       0xaad         Code  Gb  cmain.o [4]
+__exit                        0xae5   0x14  Code  Gb  exit.o [5]
+__iar_data_init3              0xa51   0x28  Code  Gb  data_init.o [4]
+__iar_program_start           0xb15         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3              0xa15   0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init              0xacb    0x4  Code  Gb  low_level_init.o [3]
+__vector_table                  0x0         Data  Gb  startup_MKL46Z4.o [2]
+__vector_table_0x1c            0x1c         Data  Gb  startup_MKL46Z4.o [2]
+_call_main                    0xab9         Code  Gb  cmain.o [4]
+_exit                         0xad9         Code  Gb  cexit.o [4]
+checkByCount                  0x127   0x84  Code  Gb  Check.o [1]
+checkERROR                    0x2b5   0x56  Code  Gb  Check.o [1]
+checkHexa                      0xeb   0x3c  Code  Gb  Check.o [1]
+checkS                         0xc1   0x14  Code  Gb  Check.o [1]
+checkSum                      0x1ab  0x100  Code  Gb  Check.o [1]
+checkType                      0xd5   0x16  Code  Gb  Check.o [1]
+exit                          0xacf    0x8  Code  Gb  exit.o [3]
+init_uart                     0x66b   0xd4  Code  Gb  Uart.o [1]
+main                          0x7b1   0xdc  Code  Gb  main.o [1]
+q                       0x1fff'e150    0x4  Data  Gb  main.o [1]
+queue_array             0x1fff'e000  0x140  Data  Gb  main.o [1]
+send_message                  0x73f   0x2c  Code  Gb  Uart.o [1]
+
+
+[1] = C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\source
+[2] = C:\Users\nthu8\Downloads\ThuNV6_MCP_MockPj2\project\Debug\Obj\startup
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+[5] = shb_l.a
+
+  2'684 bytes of readonly  code memory
+     68 bytes of readonly  data memory
+  2'388 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
