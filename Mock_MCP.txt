@@ -1,0 +1,10 @@
+Use UART0 to tranfer SREC file from computer to board. 
+If board check SREC correct then write data to flash with address corresponding.
+
+Lecture: Provide module flash for student and guide.
+
+Uart: 1 start bit, 8 bit data, no parity, 1 bit stop, baudrate 9600
+
+Guide: using queue 4 row, each row is array with 80 element.
+
+Timeline : 12/9/2022 - 12h trưa 15/9/2022
